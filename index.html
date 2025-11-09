@@ -1,199 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CRICKCAST</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+<title>CRICKCAST</title>
 
-  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #0a0a0a;
-      font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
-      color: #e0e0e0;
-    }
+<style>
 
-    /* HEADER WITH SHIELD + CROWN LOGO */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 70px;
-      background: rgba(10, 10, 10, 0.85);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      z-index: 9999;
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-    }
+/* GENERAL */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #05070a;
+  font-family: 'Poppins', sans-serif;
+  color: #e0e0e0;
+  overflow-x: hidden;
+}
 
-    .logo-box {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: rgba(5,10,15,0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0,255,170,0.25);
+  z-index: 9999;
+}
 
-    .logo-box svg {
-      width: 35px;
-      height: 35px;
-      stroke: #00ffbf;
-      stroke-width: 3;
-      fill: none;
-      filter: drop-shadow(0 0 10px rgba(0,255,170,0.7));
-    }
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-    .logo-text {
-      font-size: 22px;
-      font-weight: 700;
-      color: #00ffbf;
-      text-shadow: 0 0 12px rgba(0,255,170,0.8);
-    }
+.logo-wrapper svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+}
 
-    /* POPUP OVERLAY */
-    .popup-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10002;
-    }
+.logo-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: #00ffbf;
+  text-shadow: 0 0 12px rgba(0,255,170,0.7);
+}
 
-    .popup-box {
-      width: 320px;
-      background: rgba(20, 20, 30, 0.6);
-      border: 1px solid rgba(173, 216, 230, 0.25);
-      border-radius: 20px;
-      backdrop-filter: blur(15px);
-      padding: 2rem 1.5rem;
-      text-align: center;
-      animation: fadeIn 0.5s ease forwards;
-      position: relative;
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
-    }
+/* POPUPS */
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10002;
+}
 
-    @keyframes fadeIn {
-      from { transform: scale(0.95); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
+.popup-box {
+  width: 320px;
+  background: rgba(25,25,35,.8);
+  border: 1px solid rgba(0,255,170,0.35);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  padding: 1.8rem;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0,255,170,0.3);
+  position: relative;
+}
 
-    .popup-header {
-      font-size: 2rem;
-      font-weight: 700;
-      background: linear-gradient(45deg, #00eaff, #bd00ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.4rem;
-    }
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #00ffbf;
+  font-size: 22px;
+  cursor: pointer;
+}
 
-    .popup-subtitle {
-      font-size: 1rem;
-      color: #aaa;
-      margin-bottom: 1.2rem;
-    }
+.popup-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-    .popup-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-    }
+.popup-btn {
+  border-radius: 10px;
+  padding: 12px 0;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: .3s;
+}
 
-    .popup-btn {
-      padding: 0.8rem;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.35s ease;
-      position: relative;
-      border: none;
-      text-align: center;
-      color: #fff;
-    }
+.join-btn {
+  background: linear-gradient(135deg,#00ffbf,#008cff);
+  color: #fff;
+  box-shadow: 0 0 14px rgba(0,255,200,0.5);
+}
 
-    .join-btn {
-      background: linear-gradient(135deg, #00eaff, #9c00ff);
-      box-shadow: 0 0 14px rgba(0,255,255,0.6);
-    }
+.join-btn:hover {
+  background: linear-gradient(135deg,#00ffe0,#00a6ff);
+  box-shadow: 0 0 22px rgba(0,255,200,0.8);
+}
 
-    .already-btn {
-      background: rgba(255,255,255,0.1);
-    }
+.already-btn {
+  background: rgba(255,255,255,0.12);
+  color: white;
+}
 
-    /* VIDEO FRAME */
-    .video-container {
-      width: 100vw;
-      aspect-ratio: 16/9;
-      background: #000;
-      margin-top: 70px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
+.already-btn:hover {
+  background: rgba(255,255,255,0.22);
+}
 
-    .video-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
+/* VIDEO */
+.video-container {
+  width: 100%;
+  height: 50vh;
+  background: #000;
+  margin-top: 70px;
+  position: relative;
+}
 
-  </style>
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* SECTION BOXES */
+.section-box {
+  width: 92%;
+  margin: 18px auto;
+  padding: 18px;
+  border-radius: 14px;
+  text-align: center;
+  background: rgba(0,255,170,0.07);
+  border: 1px solid rgba(0,255,170,0.25);
+  backdrop-filter: blur(10px);
+}
+
+.section-title {
+  color: #00ffbf;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.action-btn {
+  width: 100%;
+  padding: 14px 0;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg,#00ffbf,#0078ff);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* FLOATING TELEGRAM BUTTON */
+.telegram-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#00ffbf,#0078ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 28px;
+  text-decoration: none;
+  box-shadow: 0 0 18px rgba(0,255,200,0.6);
+  animation: floatPulse 1.6s infinite ease-in-out;
+  z-index: 99999;
+}
+
+@keyframes floatPulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.15);}
+  100% {transform: scale(1);}
+}
+
+</style>
 </head>
 <body>
 
-<!-- JOIN POPUP -->
+<!-- VISITOR POPUP -->
+<div class="popup-overlay" id="visitorPopup" style="display:none;">
+  <div class="popup-box">
+    <button class="close-btn" onclick="closeVisitorPopup()">×</button>
+    <div class="popup-header">Total Visitors</div>
+    <img src="https://visit-counter.vercel.app/counter.png?page=crickcast.live&s=40&c=00ff00&bg=00000000"/>
+  </div>
+</div>
+
+<!-- TELEGRAM JOIN POPUP -->
 <div class="popup-overlay" id="popup">
   <div class="popup-box">
-    <button class="close-btn" onclick="closePopup()" style="top:12px; right:18px; position:absolute; background:none; border:none; font-size:1.5rem; color:#00eaff;">×</button>
+    <button class="close-btn" onclick="closePopup()">×</button>
     <div class="popup-header">Support Us!</div>
     <div class="popup-subtitle">Join our Telegram for latest updates.</div>
     <div class="popup-buttons">
       <a href="https://t.me/The_Cricket_Corner" target="_blank" class="popup-btn join-btn">Join Now</a>
-      <button class="popup-btn already-btn" onclick="closePopup()">Already Joined</button>
+      <button class="popup-btn already-btn" onclick="closePopup(); startStream();">Already Joined</button>
     </div>
   </div>
 </div>
 
 <!-- HEADER -->
 <header>
-  <div class="logo-box">
-
-    <!-- SHIELD + CROWN LOGO -->
-    <svg viewBox="0 0 64 64">
-      <path d="M20 14 L24 20 L32 14 L40 20 L44 14 L44 24 H20 Z"/>
-      <path d="M32 8 L10 18 V32 C10 48 21 58 32 60 C43 58 54 48 54 32 V18 Z"/>
+  <div class="logo-wrapper">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+      <path d="M20 14 L24 20 L32 14 L40 20 L44 14 L44 24 H20 Z" stroke="#00ffbf" stroke-width="3" fill="none"/>
+      <path d="M32 8 L10 18 V32 C10 48 21 58 32 60 C43 58 54 48 54 32 V18 Z" stroke="#00ffbf" stroke-width="3" fill="none"/>
     </svg>
-
     <span class="logo-text">CRICKCAST</span>
-
   </div>
 </header>
 
-<!-- VIDEO PLAYER -->
+<!-- VIDEO -->
 <div class="video-container">
-  <iframe
-    src="https://prime-sooty-six.vercel.app/"
-    allowfullscreen
-    allow="autoplay; encrypted-media"
-    sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation"
-  ></iframe>
+  <iframe src="https://prime-sooty-six.vercel.app/" allowfullscreen allow="autoplay"></iframe>
 </div>
 
+<!-- FOLLOW SECTION -->
+<div class="section-box">
+  <div class="section-title">🔔 Follow Us for Updates</div>
+  <a href="https://t.me/The_Cricket_Corner" target="_blank">
+    <button class="action-btn">Join Telegram Channel</button>
+  </a>
+</div>
+
+<!-- SHARE SECTION -->
+<div class="section-box">
+  <div class="section-title">🔗 Share This Page</div>
+  <button class="action-btn" onclick="navigator.clipboard.writeText(window.location.href); alert('✅ Link Copied!');">
+    Copy & Share This Page
+  </button>
+</div>
+
+<!-- FLOAT TELEGRAM BUTTON -->
+<a href="https://t.me/The_Cricket_Corner" target="_blank" class="telegram-float">📣</a>
+
 <script>
-  function closePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
+function closePopup(){
+  document.getElementById('popup').style.display='none';
+}
+
+function startStream(){
+  document.querySelector('.video-container iframe').src=document.querySelector('.video-container iframe').src;
+}
+
+function closeVisitorPopup(){
+  document.getElementById('visitorPopup').style.display='none';
+}
 </script>
 
 </body>
