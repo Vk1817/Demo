@@ -6,3 +6,8 @@ Channel 3 tnt
 Channel 4 willow by cricbuzz 
 Channel 5 prime Hindi 
 Channel 6 prime English
+Channel 7 Fox English
+Channel 8 Fox Hindi
+Channel 9 Jiohotstar Hindi
+Channel 10 shoq English
+Channel 11 Star Sports select
