@@ -5,19 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 <title>CRICKCAST</title>
 
-<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* GENERAL */
-html, body {
+/* BASE */
+body{
   margin:0;
-  padding:0;
-  background:#050505;
+  background:#0d1117;
   font-family:'Poppins',sans-serif;
-  color:#f5eede;
-  overflow-x:hidden;
+  color:#e8ecf2;
 }
 
 /* HEADER */
@@ -25,12 +22,12 @@ header{
   position:fixed;
   top:0; left:0; right:0;
   height:70px;
-  background:rgba(10,10,10,0.75);
-  border-bottom:1px solid rgba(255,215,0,0.4);
+  background:rgba(13,17,23,0.75);
   backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(56,201,255,0.35);
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   z-index:9999;
 }
 
@@ -42,58 +39,56 @@ header{
 
 .logo-wrapper svg{
   width:34px;
-  height:34px;
-  stroke:#ffda6b;
+  stroke:#38d4ff;
   stroke-width:3;
-  filter:drop-shadow(0 0 12px #ffda6b);
+  filter:drop-shadow(0 0 10px #38d4ff);
 }
 
 .logo-text{
-  color:#ffe9a8;
+  color:#38d4ff;
   font-size:22px;
-  font-weight:700;
-  text-shadow:0 0 12px #ffda6b;
+  font-weight:600;
+  text-shadow:0 0 10px #38d4ff;
 }
 
 /* POPUP */
 .popup-overlay{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.65);
+  background:rgba(0,0,0,0.6);
   display:flex;
   align-items:center;
   justify-content:center;
-  z-index:10002;
+  z-index:99999;
 }
 
 .popup-box{
   width:330px;
-  background:rgba(30,30,30,0.55);
-  border:1px solid rgba(255,215,0,0.4);
+  background:rgba(18,22,28,0.7);
+  border:1px solid rgba(56,201,255,0.4);
+  border-radius:16px;
   backdrop-filter:blur(14px);
-  border-radius:18px;
-  padding:1.8rem;
   text-align:center;
-  box-shadow:0 0 26px rgba(255,215,0,0.35);
-  animation:fadeUp .3s ease-out;
+  padding:1.8rem;
+  box-shadow:0 0 25px rgba(56,201,255,0.35);
+  animation:fadeIn .35s ease-out;
   position:relative;
 }
 
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(30px);}
-  to{opacity:1; transform:translateY(0);}
-}
+@keyframes fadeIn{from{opacity:0;transform:scale(.7);}to{opacity:1;transform:scale(1);}}
 
+/* CLOSE BUTTON */
 .close-btn{
   position:absolute;
   top:10px; right:15px;
-  background:none; border:none;
-  color:#ffe9a8;
   font-size:22px;
+  color:#38d4ff;
+  background:none;
+  border:none;
   cursor:pointer;
 }
 
-/* BUTTONS INSIDE POPUP */
+/* POPUP BUTTONS */
 .popup-buttons{
   display:flex;
   flex-direction:column;
@@ -101,36 +96,38 @@ header{
 }
 
 .popup-btn{
+  padding:14px 0;
   border-radius:12px;
-  padding:13px 0;
+  border:none;
   font-weight:600;
   cursor:pointer;
-  border:none;
-  transition:.25s;
+  transition:0.25s;
 }
 
+/* PRIMARY CTA */
 .join-btn{
-  background:linear-gradient(135deg,#ffdf7e,#c89927);
-  color:#000;
-  box-shadow:0 0 18px rgba(255,215,0,0.7);
-}
-
-.join-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 0 26px rgba(255,215,0,1);
-}
-
-.already-btn{
-  background:rgba(255,255,255,0.15);
+  background:linear-gradient(135deg,#38d4ff,#8a6bff);
+  box-shadow:0 0 14px rgba(56,201,255,0.65);
   color:#fff;
 }
+.join-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 22px rgba(138,107,255,0.85);
+}
 
-/* VIDEO FRAME */
+/* SECONDARY CTA */
+.already-btn{
+  background:rgba(255,255,255,0.12);
+  color:#fff;
+}
+.already-btn:hover{background:rgba(255,255,255,0.22);}
+
+/* VIDEO */
 .video-container{
   width:100%;
   height:52vh;
   margin-top:70px;
-  border-bottom:1px solid rgba(255,215,0,0.3);
+  border-bottom:1px solid rgba(56,201,255,0.35);
 }
 
 .video-container iframe{
@@ -139,68 +136,62 @@ header{
   border:none;
 }
 
-/* SECTION CARDS */
+/* SECTION BOX */
 .section-box{
   width:90%;
-  margin:22px auto;
-  padding:20px;
-  border-radius:16px;
-  background:rgba(255,215,0,0.05);
-  border:1px solid rgba(255,215,0,0.3);
-  backdrop-filter:blur(12px);
+  margin:24px auto;
+  padding:18px;
+  border-radius:14px;
+  background:rgba(56,201,255,0.05);
+  border:1px solid rgba(56,201,255,0.25);
+  backdrop-filter:blur(10px);
+  box-shadow:0 0 18px rgba(56,201,255,0.25);
   text-align:center;
-  box-shadow:0 0 22px rgba(255,215,0,0.18);
 }
 
 .section-title{
-  color:#ffe9a8;
+  color:#38d4ff;
   font-size:18px;
   font-weight:600;
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
-/* GOLD BUTTONS */
+/* ACTION BUTTON */
 .action-btn{
   width:100%;
   padding:14px 0;
-  border-radius:12px;
   border:none;
-  background:linear-gradient(135deg,#ffdf7e,#c89927);
-  color:#000;
+  border-radius:12px;
   font-weight:600;
-  box-shadow:0 0 16px rgba(255,215,0,0.6);
   cursor:pointer;
+  background:linear-gradient(135deg,#38d4ff,#8a6bff);
+  color:#fff;
+  box-shadow:0 0 14px rgba(56,201,255,0.55);
   transition:.25s;
 }
-
 .action-btn:hover{
   transform:translateY(-2px);
-  box-shadow:0 0 28px rgba(255,215,0,1);
+  box-shadow:0 0 26px rgba(138,107,255,0.85);
 }
 
-/* FLOATING TELEGRAM BUTTON */
+/* FLOATING TG BUTTON */
 .telegram-float{
   position:fixed;
   bottom:20px; right:20px;
   width:62px; height:62px;
   border-radius:50%;
-  background:linear-gradient(145deg,#ffdf7e,#c89927);
-  box-shadow:0 0 20px rgba(255,215,0,0.9);
+  background:linear-gradient(135deg,#38d4ff,#8a6bff);
   display:flex;
   align-items:center;
   justify-content:center;
-  color:#000;
-  font-size:30px;
+  color:#fff;
+  font-size:28px;
   text-decoration:none;
   animation:pulse 1.7s infinite;
-  z-index:99999;
+  box-shadow:0 0 22px rgba(56,201,255,0.85);
 }
 
-@keyframes pulse{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.15);}
-  100%{transform:scale(1);}
-}
+@keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.17);}100%{transform:scale(1);}}
 
 </style>
 </head>
@@ -211,7 +202,7 @@ header{
   <div class="popup-box">
     <button class="close-btn" onclick="closePopup()">×</button>
     <h3>Support Us 🤝</h3>
-    <p>Join our Premium Telegram Channel for Instant Updates!</p>
+    <p>Join our Telegram channel for instant match access and updates!</p>
     <div class="popup-buttons">
       <a href="https://t.me/+yTkSuf20ZUtjMGVl" target="_blank" class="popup-btn join-btn">Join Now</a>
       <button class="popup-btn already-btn" onclick="closePopup(); startStream();">Already Joined</button>
@@ -226,7 +217,7 @@ header{
       <path d="M20 14 L24 20 L32 14 L40 20 L44 14 L44 24 H20 Z"/>
       <path d="M32 8 L10 18 V32 C10 48 21 58 32 60 C43 58 54 48 54 32 V18 Z"/>
     </svg>
-    <span class="logo-text">CRICKCAST PREMIUM</span>
+    <span class="logo-text">CRICKCAST</span>
   </div>
 </header>
 
@@ -235,28 +226,27 @@ header{
   <iframe src="https://cricketstan.github.io/Willow-Cricbuzz-/" allowfullscreen></iframe>
 </div>
 
-<!-- FOLLOW SECTION -->
+<!-- SECTIONS -->
 <div class="section-box">
-  <div class="section-title">🔔 Follow Us for Updates</div>
+  <div class="section-title">🔔 Follow for Updates</div>
   <a href="https://t.me/+yTkSuf20ZUtjMGVl" target="_blank">
     <button class="action-btn">Join Telegram Channel</button>
   </a>
 </div>
 
-<!-- SHARE SECTION -->
 <div class="section-box">
   <div class="section-title">🔗 Share This Page</div>
-  <button class="action-btn" onclick="navigator.clipboard.writeText(window.location.href); alert('✅ Link Copied! Share it!');">
-    Copy & Share This Page
+  <button class="action-btn" onclick="navigator.clipboard.writeText(window.location.href); alert('✅ Link Copied!');">
+    Copy & Share Link
   </button>
 </div>
 
-<!-- FLOATING TELEGRAM BUTTON -->
+<!-- FLOAT BUTTON -->
 <a href="https://t.me/+yTkSuf20ZUtjMGVl" target="_blank" class="telegram-float">📣</a>
 
 <script>
-function closePopup(){ document.getElementById('popup').style.display='none'; }
-function startStream(){ document.querySelector('.video-container iframe').src = document.querySelector('.video-container iframe').src; }
+function closePopup(){document.getElementById('popup').style.display='none';}
+function startStream(){document.querySelector('.video-container iframe').src=document.querySelector('.video-container iframe').src;}
 </script>
 
 </body>
