@@ -70,7 +70,7 @@ header{
   position:relative;
 }
 
-/* BUTTON STYLES */
+/* BUTTONS */
 .popup-btn, .already-btn, .action-btn{
   width:100%;
   padding:14px;
@@ -99,13 +99,12 @@ header{
   width:100%; height:52vh;
   margin-top:70px;
 }
-
 .video-container iframe{
   width:100%; height:100%;
   border:none;
 }
 
-/* ✅ LIVE BADGE IN VIDEO */
+/* LIVE BADGE */
 .live-badge{
   position:absolute;
   top:10px; left:12px;
@@ -127,7 +126,6 @@ header{
   border-radius:50%;
   animation:blink 1.1s infinite;
 }
-
 @keyframes blink{
   0%,100%{opacity:1;}
   50%{opacity:0.4;}
@@ -183,6 +181,7 @@ header{
     <button class="close-btn" onclick="closePopup()">×</button>
     <h3>Support Us 🤝</h3>
     <p>Join our Telegram Channel for instant updates.</p>
+
     <a href="https://t.me/+yTkSuf20ZUtjMGVl" target="_blank"><button class="popup-btn">Join Now</button></a>
     <button class="already-btn" onclick="closePopup(); startStream();">Already Joined</button>
   </div>
@@ -201,6 +200,8 @@ header{
 
 <!-- VIDEO -->
 <div class="video-container">
+
+  <!-- ✅ LIVE BADGE -->
   <div class="live-badge">
     <div class="live-dot"></div>
     <span id="viewerText">LIVE • ... Watching</span>
@@ -235,19 +236,19 @@ header{
 function closePopup(){ document.getElementById('popup').style.display='none'; }
 function startStream(){ document.querySelector('.video-container iframe').src=document.querySelector('.video-container iframe').src; }
 
-/* ✅ REAL LIVE VIEWER COUNTER */
-async function updateRealLiveCounter(){
-  try{
-    let res = await fetch("https://api.countapi.xyz/hit/CRICKCAST/live");
+/* ✅ REAL LIVE VIEWERS COUNTER */
+async function updateLiveViewers() {
+  try {
+    let res = await fetch("https://api.webcount.dev/c/demo-ashy-xi");
     let data = await res.json();
-    document.getElementById("viewerText").innerHTML = `LIVE • ${data.value} Watching`;
-  }catch(e){
-    console.log("Counter Error:", e);
+    document.getElementById("viewerText").innerHTML = `LIVE • ${data.count} Watching`;
+  } catch(e) {
+    console.log("Live Counter Error:", e);
   }
 }
+updateLiveViewers();
+setInterval(updateLiveViewers, 5000);
 
-updateRealLiveCounter();
-setInterval(updateRealLiveCounter, 7000);
 </script>
 
 </body>
