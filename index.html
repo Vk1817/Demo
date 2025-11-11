@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 <title>CRICKCAST</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght:300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -73,18 +73,6 @@ header{
 
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 
-/* Popup Text */
-.popup-box h3{
-  margin-bottom:6px;
-  font-size:20px;
-  font-weight:600;
-}
-.popup-box p{
-  font-size:14px;
-  opacity:.85;
-  margin-bottom:18px;
-}
-
 /* BUTTONS */
 .popup-btn, .already-btn, .action-btn{
   width:100%;
@@ -102,7 +90,6 @@ header{
   margin-top:10px;
 }
 
-/* Gloss Shine Effect */
 .popup-btn::after, .already-btn::after, .action-btn::after{
   content:"";
   position:absolute;
@@ -133,12 +120,41 @@ header{
 
 /* VIDEO */
 .video-container{
+  position:relative;
   width:100%; height:52vh;
   margin-top:70px;
 }
 .video-container iframe{
   width:100%; height:100%;
   border:none;
+}
+
+/* ✅ LIVE BADGE INSIDE VIDEO */
+.live-badge{
+  position:absolute;
+  top:10px; left:12px;
+  padding:6px 12px;
+  background:rgba(0,0,0,0.6);
+  border:1px solid rgba(0,255,200,0.35);
+  border-radius:14px;
+  font-size:12px;
+  color:#00ffd6;
+  backdrop-filter:blur(8px);
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.live-dot{
+  width:9px; height:9px;
+  background:#ff2e63;
+  border-radius:50%;
+  animation:blink 1.1s infinite;
+}
+
+@keyframes blink{
+  0%,100%{opacity:1;}
+  50%{opacity:0.4;}
 }
 
 /* SECTIONS */
@@ -151,18 +167,7 @@ header{
   border:1px solid rgba(0,255,200,0.22);
   backdrop-filter:blur(14px);
   text-align:center;
-  transition:.25s;
   box-shadow:0 0 18px rgba(0,255,200,0.15);
-}
-.section-box:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 28px rgba(0,255,200,0.28);
-}
-
-.section-title{
-  color:#00e6c4;
-  font-size:18px;
-  margin-bottom:10px;
 }
 
 /* FLOAT TG BUTTON */
@@ -179,6 +184,7 @@ header{
   animation:pulse 1.7s infinite ease-in-out;
   z-index:1500;
 }
+
 @keyframes pulse{
   0%{transform:scale(1);}
   50%{transform:scale(1.1);}
@@ -195,11 +201,7 @@ header{
     <button class="close-btn" onclick="closePopup()">×</button>
     <h3>Support Us 🤝</h3>
     <p>Join our Telegram Channel for instant updates.</p>
-    
-    <a href="https://t.me/+yTkSuf20ZUtjMGVl" target="_blank">
-      <button class="popup-btn">Join Now</button>
-    </a>
-
+    <a href="https://t.me/+yTkSuf20ZUtjMGVl" target="_blank"><button class="popup-btn">Join Now</button></a>
     <button class="already-btn" onclick="closePopup(); startStream();">Already Joined</button>
   </div>
 </div>
@@ -215,8 +217,13 @@ header{
   </div>
 </header>
 
-<!-- VIDEO -->
+<!-- VIDEO + LIVE BADGE -->
 <div class="video-container">
+  <div class="live-badge">
+    <div class="live-dot"></div>
+    <span id="viewerText">LIVE • 00 Watching</span>
+  </div>
+
   <iframe
     src="https://cricketstan.github.io/Willow-Cricbuzz-/"
     allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
@@ -245,6 +252,14 @@ header{
 <script>
 function closePopup(){ document.getElementById('popup').style.display='none'; }
 function startStream(){ document.querySelector('.video-container iframe').src=document.querySelector('.video-container iframe').src; }
+
+// UPDATE LIVE WATCHING COUNT
+function updateViewers(){
+  const count = Math.floor(Math.random()*60)+40; // 40–100 viewers auto range
+  document.getElementById("viewerText").innerHTML = `LIVE • ${count} Watching`;
+}
+updateViewers();
+setInterval(updateViewers, 9000); // refresh every 9 seconds
 </script>
 
 </body>
