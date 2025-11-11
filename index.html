@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-viewport=1, user-scalable=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 <title>CRICKCAST</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -68,15 +68,15 @@ header{
   text-align:center;
   box-shadow:0 0 25px rgba(0,255,200,0.28);
   animation:fadeIn .3s ease-out;
+  position:relative;
 }
 
 @keyframes fadeIn{from{opacity:0;transform:scale(.9);}to{opacity:1;transform:scale(1);}}
 
-/* POPUP BUTTONS */
-.popup-btn, .action-btn{
+/* BUTTONS (Primary Style) */
+.popup-btn, .already-btn, .action-btn{
   width:100%;
   padding:14px;
-  margin-top:10px;
   border:none;
   border-radius:12px;
   font-weight:600;
@@ -85,22 +85,19 @@ header{
   background:linear-gradient(135deg,#00e6c4,#007bff);
   box-shadow:0 0 12px rgba(0,255,200,0.3);
   transition:.25s ease;
+  margin-top:10px;
 }
 
-.popup-btn:hover, .action-btn:hover{
+.popup-btn:hover, .already-btn:hover, .action-btn:hover{
   transform:translateY(-2px);
   box-shadow:0 0 20px rgba(0,255,200,0.55);
 }
 
-/* Secondary Button */
-.already-btn{
-  margin-top:10px;
-  background:rgba(255,255,255,0.12);
-  color:#fff;
-  border:none;
-}
-.already-btn:hover{
-  background:rgba(255,255,255,0.22);
+/* CLOSE BUTTON */
+.close-btn{
+  position:absolute; top:8px; right:14px;
+  background:none; border:none; font-size:23px;
+  cursor:pointer; color:#00e6c4;
 }
 
 /* VIDEO */
@@ -113,7 +110,7 @@ header{
   border:none;
 }
 
-/* SECTION CARD */
+/* SECTIONS */
 .section-box{
   width:92%;
   margin:20px auto;
@@ -132,7 +129,7 @@ header{
   margin-bottom:10px;
 }
 
-/* FLOATING BUTTON */
+/* FLOAT TG BUTTON */
 .telegram-float{
   position:fixed;
   bottom:20px; right:20px;
@@ -153,12 +150,6 @@ header{
   100%{transform:scale(1);}
 }
 
-.close-btn{
-  position:absolute; top:8px; right:14px;
-  background:none; border:none; font-size:23px;
-  cursor:pointer; color:#00e6c4;
-}
-
 </style>
 </head>
 <body>
@@ -167,10 +158,16 @@ header{
 <div class="popup-overlay" id="popup">
   <div class="popup-box">
     <button class="close-btn" onclick="closePopup()">×</button>
-    <h3>Support Us🤝</h3>
+    <h3>Support Us!</h3>
     <p>Join our Telegram Channel for instant updates.</p>
-    <a href="https://t.me/+yTkSuf20ZUtjMGVl" target="_blank"><button class="popup-btn">Join Now</button></a>
+    
+    <a href="https://t.me/+yTkSuf20ZUtjMGVl" target="_blank">
+      <button class="popup-btn">Join Now</button>
+    </a>
+
+    <!-- ✅ NOW MATCHES JOIN NOW BUTTON -->
     <button class="already-btn" onclick="closePopup(); startStream();">Already Joined</button>
+
   </div>
 </div>
 
