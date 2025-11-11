@@ -130,20 +130,6 @@ header{
   border:none;
 }
 
-/* LIVE SCORE BANNER */
-.score-banner{
-  width:100%;
-  padding:10px 0;
-  text-align:center;
-  background:rgba(19,227,194,0.08);
-  border-top:1px solid rgba(19,227,194,0.35);
-  border-bottom:1px solid rgba(19,227,194,0.35);
-  font-size:17px;
-  font-weight:600;
-  color:#13e3c2;
-  backdrop-filter:blur(10px);
-}
-
 /* CONTENT SECTIONS */
 .section-box{
   width:90%;
@@ -240,9 +226,6 @@ header{
   ></iframe>
 </div>
 
-<!-- ✅ Auto Updating SCORE -->
-<div class="score-banner" id="scoreDisplay">Loading live score...</div>
-
 <!-- SECTIONS -->
 <div class="section-box">
   <div class="section-title">🔔 Follow Updates</div>
@@ -263,24 +246,7 @@ header{
 
 <script>
 function closePopup(){ document.getElementById('popup').style.display='none'; }
-function startStream(){ document.querySelector('.video-container iframe').src = document.querySelector('.video-container iframe').src; }
-
-/* ✅ LIVE SCORE AUTO UPDATE */
-const MATCH_ID = "srilanka vs Pakistan"; // <-- CHANGE MATCH ID HERE
-
-function updateScore(){
-  fetch(`https://cricapi-score.vercel.app/score/${MATCH_ID}`)
-    .then(res => res.json())
-    .then(data => {
-      if(data.score){
-        document.getElementById("scoreDisplay").innerHTML = data.score;
-      }
-    })
-    .catch(err => console.log("Score Fetch Error:", err));
-}
-
-updateScore();
-setInterval(updateScore, 15000); // updates every 15 sec
+function startStream(){ document.querySelector('.video-container iframe').src=document.querySelector('.video-container iframe').src; }
 </script>
 
 </body>
