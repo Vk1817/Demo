@@ -104,7 +104,7 @@ header{
   border:none;
 }
 
-/* LIVE BADGE */
+/* ✅ LIVE BADGE INSIDE VIDEO */
 .live-badge{
   position:absolute;
   top:10px; left:12px;
@@ -150,7 +150,7 @@ header{
   margin-bottom:10px;
 }
 
-/* FLOAT TG BUTTON */
+/* FLOATING TELEGRAM BUTTON */
 .telegram-float{
   position:fixed;
   bottom:20px; right:20px;
@@ -198,10 +198,8 @@ header{
   </div>
 </header>
 
-<!-- VIDEO -->
+<!-- VIDEO WITH LIVE BADGE -->
 <div class="video-container">
-
-  <!-- ✅ LIVE BADGE -->
   <div class="live-badge">
     <div class="live-dot"></div>
     <span id="viewerText">LIVE • ... Watching</span>
@@ -236,19 +234,19 @@ header{
 function closePopup(){ document.getElementById('popup').style.display='none'; }
 function startStream(){ document.querySelector('.video-container iframe').src=document.querySelector('.video-container iframe').src; }
 
-/* ✅ REAL LIVE VIEWERS COUNTER */
+/* ✅ REAL LIVE VIEWERS COUNTER — FIXED */
 async function updateLiveViewers() {
   try {
-    let res = await fetch("https://api.webcount.dev/c/demo-ashy-xi");
+    let res = await fetch("https://api.webcount.dev/c/demo-ashy-xi?add=1");
     let data = await res.json();
     document.getElementById("viewerText").innerHTML = `LIVE • ${data.count} Watching`;
   } catch(e) {
-    console.log("Live Counter Error:", e);
+    document.getElementById("viewerText").innerHTML = `LIVE • Connecting...`;
   }
 }
+
 updateLiveViewers();
 setInterval(updateLiveViewers, 5000);
-
 </script>
 
 </body>
