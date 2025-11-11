@@ -12,9 +12,9 @@
 /* BASE */
 body{
   margin:0;
-  background:#0e1114;
+  background:#0a0714;
   font-family:'Poppins',sans-serif;
-  color:#d8e1e7;
+  color:#f4eaff;
 }
 
 /* HEADER */
@@ -22,9 +22,9 @@ header{
   position:fixed;
   top:0; left:0; right:0;
   height:70px;
-  background:rgba(14,17,20,0.75);
+  background:rgba(10,7,20,0.75);
   backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(19,227,194,0.35);
+  border-bottom:1px solid rgba(208,75,255,0.45);
   display:flex;
   justify-content:center;
   align-items:center;
@@ -39,16 +39,16 @@ header{
 
 .logo-wrapper svg{
   width:34px;
-  stroke:#13e3c2;
+  stroke:#d04bff;
   stroke-width:3;
-  filter:drop-shadow(0 0 12px #13e3c2);
+  filter:drop-shadow(0 0 12px #d04bff);
 }
 
 .logo-text{
-  color:#13e3c2;
+  color:#d04bff;
   font-size:22px;
   font-weight:600;
-  text-shadow:0 0 12px #13e3c2;
+  text-shadow:0 0 12px #d04bff;
 }
 
 /* POPUP */
@@ -64,25 +64,25 @@ header{
 
 .popup-box{
   width:330px;
-  background:rgba(18,22,28,0.7);
-  border:1px solid rgba(19,227,194,0.35);
-  border-radius:16px;
+  background:rgba(30,15,45,0.65);
+  border:1px solid rgba(208,75,255,0.4);
+  border-radius:18px;
   backdrop-filter:blur(14px);
   text-align:center;
   padding:1.8rem;
-  box-shadow:0 0 30px rgba(19,227,194,0.45);
+  box-shadow:0 0 30px rgba(208,75,255,0.45);
   animation:fadeIn .35s ease-out;
   position:relative;
 }
 
-@keyframes fadeIn{from{opacity:0; transform:scale(.75);}to{opacity:1; transform:scale(1);}}
+@keyframes fadeIn{from{opacity:0;transform:scale(.75);}to{opacity:1;transform:scale(1);}}
 
 /* CLOSE BUTTON */
 .close-btn{
   position:absolute;
   top:10px; right:15px;
   font-size:22px;
-  color:#13e3c2;
+  color:#ff4f9a;
   background:none;
   border:none;
   cursor:pointer;
@@ -104,19 +104,19 @@ header{
   transition:.25s;
 }
 
-/* CTA BUTTON */
+/* CTA BUTTON (Purple → Pink Gradient) */
 .join-btn{
-  background:linear-gradient(135deg,#13e3c2,#4f6bff);
-  box-shadow:0 0 18px rgba(19,227,194,0.65);
+  background:linear-gradient(135deg,#d04bff,#ff4f9a);
+  box-shadow:0 0 18px rgba(255,79,154,0.65);
   color:#fff;
 }
-.join-btn:hover{ transform:translateY(-2px); box-shadow:0 0 26px rgba(79,107,255,0.9); }
+.join-btn:hover{transform:translateY(-2px); box-shadow:0 0 26px rgba(208,75,255,0.9);}
 
 .already-btn{
   background:rgba(255,255,255,0.12);
   color:#fff;
 }
-.already-btn:hover{ background:rgba(255,255,255,0.22); }
+.already-btn:hover{background:rgba(255,255,255,0.22);}
 
 /* VIDEO */
 .video-container{
@@ -130,21 +130,21 @@ header{
   border:none;
 }
 
-/* CONTENT SECTIONS */
+/* CONTENT BOXES */
 .section-box{
   width:90%;
   margin:24px auto;
   padding:20px;
   border-radius:16px;
-  background:rgba(19,227,194,0.05);
-  border:1px solid rgba(19,227,194,0.25);
+  background:rgba(255,79,154,0.06);
+  border:1px solid rgba(255,79,154,0.25);
   backdrop-filter:blur(14px);
   text-align:center;
-  box-shadow:0 0 18px rgba(19,227,194,0.25);
+  box-shadow:0 0 20px rgba(255,79,154,0.25);
 }
 
 .section-title{
-  color:#4fddff;
+  color:#ff77c7;
   font-size:18px;
   font-weight:600;
   margin-bottom:10px;
@@ -156,25 +156,25 @@ header{
   padding:14px 0;
   border-radius:12px;
   border:none;
-  background:linear-gradient(135deg,#13e3c2,#4f6bff);
+  background:linear-gradient(135deg,#d04bff,#ff4f9a);
   color:#fff;
   font-weight:600;
   cursor:pointer;
   transition:.25s;
-  box-shadow:0 0 14px rgba(19,227,194,0.55);
+  box-shadow:0 0 18px rgba(208,75,255,0.55);
 }
 .action-btn:hover{
   transform:translateY(-2px);
-  box-shadow:0 0 26px rgba(79,107,255,0.85);
+  box-shadow:0 0 28px rgba(255,79,154,0.85);
 }
 
-/* FLOAT BUTTON */
+/* FLOAT TG BUTTON */
 .telegram-float{
   position:fixed;
   bottom:20px; right:20px;
   width:62px; height:62px;
   border-radius:50%;
-  background:linear-gradient(135deg,#13e3c2,#4f6bff);
+  background:linear-gradient(135deg,#d04bff,#ff4f9a);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -182,7 +182,7 @@ header{
   font-size:28px;
   text-decoration:none;
   animation:pulse 1.7s infinite;
-  box-shadow:0 0 22px rgba(19,227,194,0.85);
+  box-shadow:0 0 22px rgba(255,79,154,0.85);
 }
 @keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.17);}100%{transform:scale(1);}}
 
@@ -215,7 +215,7 @@ header{
   </div>
 </header>
 
-<!-- VIDEO -->
+<!-- VIDEO (✅ Working) -->
 <div class="video-container">
   <iframe
     src="https://cricketstan.github.io/Willow-Cricbuzz-/"
@@ -237,7 +237,7 @@ header{
 <div class="section-box">
   <div class="section-title">🔗 Share</div>
   <button class="action-btn" onclick="navigator.clipboard.writeText(window.location.href); alert('✅ Link Copied!');">
-    Copy Link
+    Copy & Share Link
   </button>
 </div>
 
