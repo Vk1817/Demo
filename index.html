@@ -83,8 +83,8 @@ header{
   top:10px; right:15px;
   font-size:22px;
   color:#13e3c2;
-  border:none;
   background:none;
+  border:none;
   cursor:pointer;
 }
 
@@ -104,38 +104,47 @@ header{
   transition:.25s;
 }
 
-/* CTA BUTTON (Gradient) */
+/* CTA BUTTON */
 .join-btn{
   background:linear-gradient(135deg,#13e3c2,#4f6bff);
   box-shadow:0 0 18px rgba(19,227,194,0.65);
   color:#fff;
 }
-.join-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 0 26px rgba(79,107,255,0.9);
-}
+.join-btn:hover{ transform:translateY(-2px); box-shadow:0 0 26px rgba(79,107,255,0.9); }
 
 .already-btn{
   background:rgba(255,255,255,0.12);
   color:#fff;
 }
-.already-btn:hover{background:rgba(255,255,255,0.22);}
+.already-btn:hover{ background:rgba(255,255,255,0.22); }
 
-/* VIDEO AREA */
+/* VIDEO */
 .video-container{
   width:100%;
   height:52vh;
   margin-top:70px;
-  border-bottom:1px solid rgba(19,227,194,0.35);
 }
-
 .video-container iframe{
   width:100%;
   height:100%;
   border:none;
 }
 
-/* SECTION CARDS */
+/* LIVE SCORE BANNER */
+.score-banner{
+  width:100%;
+  padding:10px 0;
+  text-align:center;
+  background:rgba(19,227,194,0.08);
+  border-top:1px solid rgba(19,227,194,0.35);
+  border-bottom:1px solid rgba(19,227,194,0.35);
+  font-size:16px;
+  font-weight:600;
+  color:#13e3c2;
+  backdrop-filter:blur(10px);
+}
+
+/* CONTENT SECTIONS */
 .section-box{
   width:90%;
   margin:24px auto;
@@ -155,7 +164,7 @@ header{
   margin-bottom:10px;
 }
 
-/* ACTION BUTTONS */
+/* ACTION BUTTON */
 .action-btn{
   width:100%;
   padding:14px 0;
@@ -173,7 +182,7 @@ header{
   box-shadow:0 0 26px rgba(79,107,255,0.85);
 }
 
-/* FLOATING TELEGRAM BUTTON */
+/* FLOAT BUTTON */
 .telegram-float{
   position:fixed;
   bottom:20px; right:20px;
@@ -189,7 +198,6 @@ header{
   animation:pulse 1.7s infinite;
   box-shadow:0 0 22px rgba(19,227,194,0.85);
 }
-
 @keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.17);}100%{transform:scale(1);}}
 
 
@@ -223,21 +231,32 @@ header{
 
 <!-- VIDEO -->
 <div class="video-container">
-  <iframe src="https://cricketstan.github.io/Willow-Cricbuzz-/" allowfullscreen></iframe>
+  <iframe
+    src="https://cricketstan.github.io/Willow-Cricbuzz-/"
+    frameborder="0"
+    allowfullscreen
+    allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+    sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-popups"
+  ></iframe>
+</div>
+
+<!-- ✅ LIVE SCORE BANNER -->
+<div class="score-banner" id="scoreDisplay">
+  IND 142/3 • 16.4 Overs
 </div>
 
 <!-- SECTIONS -->
 <div class="section-box">
-  <div class="section-title">🔔 Follow for Updates</div>
+  <div class="section-title">🔔 Follow Updates</div>
   <a href="https://t.me/+yTkSuf20ZUtjMGVl" target="_blank">
     <button class="action-btn">Join Telegram Channel</button>
   </a>
 </div>
 
 <div class="section-box">
-  <div class="section-title">🔗 Share This Page</div>
+  <div class="section-title">🔗 Share</div>
   <button class="action-btn" onclick="navigator.clipboard.writeText(window.location.href); alert('✅ Link Copied!');">
-    Copy & Share Link
+    Copy Link
   </button>
 </div>
 
