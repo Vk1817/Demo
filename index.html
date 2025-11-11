@@ -95,41 +95,12 @@ header{
 
 /* VIDEO */
 .video-container{
-  position:relative;
   width:100%; height:52vh;
   margin-top:70px;
 }
 .video-container iframe{
   width:100%; height:100%;
   border:none;
-}
-
-/* LIVE BADGE */
-.live-badge{
-  position:absolute;
-  top:10px; left:12px;
-  padding:6px 12px;
-  background:rgba(0,0,0,0.6);
-  border:1px solid rgba(0,255,200,0.35);
-  border-radius:14px;
-  font-size:12px;
-  color:#00ffd6;
-  backdrop-filter:blur(8px);
-  display:flex;
-  align-items:center;
-  gap:6px;
-}
-
-.live-dot{
-  width:9px; height:9px;
-  background:#ff2e63;
-  border-radius:50%;
-  animation:blink 1.1s infinite;
-}
-
-@keyframes blink{
-  0%,100%{opacity:1;}
-  50%{opacity:0.4;}
 }
 
 /* SECTIONS */
@@ -182,7 +153,6 @@ header{
     <button class="close-btn" onclick="closePopup()">×</button>
     <h3>Support Us 🤝</h3>
     <p>Join our Telegram Channel for instant updates.</p>
-
     <a href="https://t.me/+yTkSuf20ZUtjMGVl" target="_blank"><button class="popup-btn">Join Now</button></a>
     <button class="already-btn" onclick="closePopup(); startStream();">Already Joined</button>
   </div>
@@ -201,12 +171,6 @@ header{
 
 <!-- VIDEO -->
 <div class="video-container">
-
-  <div class="live-badge">
-    <div class="live-dot"></div>
-    <span id="viewerText">LIVE • Connecting...</span>
-  </div>
-
   <iframe
     src="https://cricketstan.github.io/Willow-Cricbuzz-/"
     allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
@@ -235,25 +199,6 @@ header{
 <script>
 function closePopup(){ document.getElementById('popup').style.display='none'; }
 function startStream(){ document.querySelector('.video-container iframe').src=document.querySelector('.video-container iframe').src; }
-
-/* ✅ REAL LIVE VIEWERS (PRESENCE MODE) */
-async function joinAndUpdateViewers(){
-  try {
-    await fetch("https://api.webcount.dev/p/demo-ashy-xi");
-    let res = await fetch("https://api.webcount.dev/p/demo-ashy-xi");
-    let data = await res.json();
-    document.getElementById("viewerText").innerHTML = `LIVE • ${data.count} Watching`;
-  } catch(e) {
-    document.getElementById("viewerText").innerHTML = `LIVE • Connecting...`;
-  }
-}
-
-joinAndUpdateViewers();
-setInterval(joinAndUpdateViewers, 5000);
-
-window.addEventListener("beforeunload", () => {
-  navigator.sendBeacon("https://api.webcount.dev/p/demo-ashy-xi/leave");
-});
 </script>
 
 </body>
