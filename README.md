@@ -11,3 +11,5 @@ Channel 8 Fox Hindi
 Channel 9 Jiohotstar Hindi
 Channel 10 shoq English
 Channel 11 Star Sports select
+Channel 12 Astro cricket
+channel13 Youtube pak vs sl
