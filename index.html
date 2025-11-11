@@ -12,9 +12,9 @@
 /* BASE */
 body{
   margin:0;
-  background:#0a0714;
+  background:#0a0e1a;
   font-family:'Poppins',sans-serif;
-  color:#f4eaff;
+  color:#dce7f7;
 }
 
 /* HEADER */
@@ -22,9 +22,9 @@ header{
   position:fixed;
   top:0; left:0; right:0;
   height:70px;
-  background:rgba(10,7,20,0.75);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(208,75,255,0.45);
+  background:rgba(10,14,26,0.75);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,219,255,0.35);
   display:flex;
   justify-content:center;
   align-items:center;
@@ -39,16 +39,16 @@ header{
 
 .logo-wrapper svg{
   width:34px;
-  stroke:#d04bff;
+  stroke:#4a7bff;
   stroke-width:3;
-  filter:drop-shadow(0 0 12px #d04bff);
+  filter:drop-shadow(0 0 12px #4a7bff);
 }
 
 .logo-text{
-  color:#d04bff;
+  color:#4a7bff;
   font-size:22px;
   font-weight:600;
-  text-shadow:0 0 12px #d04bff;
+  text-shadow:0 0 12px #4a7bff;
 }
 
 /* POPUP */
@@ -64,31 +64,30 @@ header{
 
 .popup-box{
   width:330px;
-  background:rgba(30,15,45,0.65);
-  border:1px solid rgba(208,75,255,0.4);
-  border-radius:18px;
+  background:rgba(15,22,40,0.7);
+  border:1px solid rgba(0,219,255,0.35);
+  border-radius:16px;
   backdrop-filter:blur(14px);
   text-align:center;
   padding:1.8rem;
-  box-shadow:0 0 30px rgba(208,75,255,0.45);
-  animation:fadeIn .35s ease-out;
+  box-shadow:0 0 26px rgba(74,123,255,0.45);
+  animation:zoomIn .35s ease-out;
   position:relative;
 }
 
-@keyframes fadeIn{from{opacity:0;transform:scale(.75);}to{opacity:1;transform:scale(1);}}
+@keyframes zoomIn{from{transform:scale(.7);opacity:0;}to{transform:scale(1);opacity:1;}}
 
-/* CLOSE BUTTON */
 .close-btn{
   position:absolute;
   top:10px; right:15px;
   font-size:22px;
-  color:#ff7cc2;
+  color:#00dbff;
   background:none;
   border:none;
   cursor:pointer;
 }
 
-/* POPUP BUTTONS */
+/* BUTTONS */
 .popup-buttons{
   display:flex;
   flex-direction:column;
@@ -104,14 +103,18 @@ header{
   transition:.25s;
 }
 
-/* CTA BUTTON (Purple → Soft Pink Gradient) */
+/* Primary CTA */
 .join-btn{
-  background:linear-gradient(135deg,#d04bff,#ff7cc2);
-  box-shadow:0 0 18px rgba(255,124,194,0.55);
+  background:linear-gradient(135deg,#4a7bff,#00dbff);
   color:#fff;
+  box-shadow:0 0 18px rgba(0,219,255,0.55);
 }
-.join-btn:hover{transform:translateY(-2px); box-shadow:0 0 28px rgba(208,75,255,0.9);}
+.join-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 26px rgba(74,123,255,0.95);
+}
 
+/* Secondary CTA */
 .already-btn{
   background:rgba(255,255,255,0.12);
   color:#fff;
@@ -130,51 +133,51 @@ header{
   border:none;
 }
 
-/* CONTENT BOXES */
+/* SECTIONS */
 .section-box{
   width:90%;
   margin:24px auto;
   padding:20px;
   border-radius:16px;
-  background:rgba(255,124,194,0.06);
-  border:1px solid rgba(255,124,194,0.25);
+  background:rgba(0,219,255,0.05);
+  border:1px solid rgba(0,219,255,0.25);
   backdrop-filter:blur(14px);
   text-align:center;
-  box-shadow:0 0 20px rgba(255,124,194,0.25);
+  box-shadow:0 0 18px rgba(0,219,255,0.25);
 }
 
 .section-title{
-  color:#ff9ddb;
+  color:#00dbff;
   font-size:18px;
   font-weight:600;
   margin-bottom:10px;
 }
 
-/* ACTION BUTTON */
+/* ACTION BUTTONS */
 .action-btn{
   width:100%;
   padding:14px 0;
   border-radius:12px;
   border:none;
-  background:linear-gradient(135deg,#d04bff,#ff7cc2);
+  background:linear-gradient(135deg,#4a7bff,#00dbff);
   color:#fff;
   font-weight:600;
   cursor:pointer;
   transition:.25s;
-  box-shadow:0 0 18px rgba(208,75,255,0.55);
+  box-shadow:0 0 18px rgba(74,123,255,0.45);
 }
 .action-btn:hover{
   transform:translateY(-2px);
-  box-shadow:0 0 26px rgba(255,124,194,0.85);
+  box-shadow:0 0 28px rgba(0,219,255,0.85);
 }
 
-/* FLOAT TG BUTTON */
+/* FLOAT BUTTON */
 .telegram-float{
   position:fixed;
   bottom:20px; right:20px;
   width:62px; height:62px;
   border-radius:50%;
-  background:linear-gradient(135deg,#d04bff,#ff7cc2);
+  background:linear-gradient(135deg,#4a7bff,#00dbff);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -182,7 +185,7 @@ header{
   font-size:28px;
   text-decoration:none;
   animation:pulse 1.7s infinite;
-  box-shadow:0 0 22px rgba(255,124,194,0.85);
+  box-shadow:0 0 22px rgba(0,219,255,0.85);
 }
 @keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.17);}100%{transform:scale(1);}}
 
