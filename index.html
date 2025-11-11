@@ -138,7 +138,7 @@ header{
   background:rgba(19,227,194,0.08);
   border-top:1px solid rgba(19,227,194,0.35);
   border-bottom:1px solid rgba(19,227,194,0.35);
-  font-size:16px;
+  font-size:17px;
   font-weight:600;
   color:#13e3c2;
   backdrop-filter:blur(10px);
@@ -240,10 +240,8 @@ header{
   ></iframe>
 </div>
 
-<!-- ✅ LIVE SCORE BANNER -->
-<div class="score-banner" id="scoreDisplay">
-  IND 142/3 • 16.4 Overs
-</div>
+<!-- ✅ Auto Updating SCORE -->
+<div class="score-banner" id="scoreDisplay">Loading live score...</div>
 
 <!-- SECTIONS -->
 <div class="section-box">
@@ -264,8 +262,25 @@ header{
 <a href="https://t.me/+yTkSuf20ZUtjMGVl" target="_blank" class="telegram-float">📣</a>
 
 <script>
-function closePopup(){document.getElementById('popup').style.display='none';}
-function startStream(){document.querySelector('.video-container iframe').src=document.querySelector('.video-container iframe').src;}
+function closePopup(){ document.getElementById('popup').style.display='none'; }
+function startStream(){ document.querySelector('.video-container iframe').src = document.querySelector('.video-container iframe').src; }
+
+/* ✅ LIVE SCORE AUTO UPDATE */
+const MATCH_ID = "srilanka vs Pakistan"; // <-- CHANGE MATCH ID HERE
+
+function updateScore(){
+  fetch(`https://cricapi-score.vercel.app/score/${MATCH_ID}`)
+    .then(res => res.json())
+    .then(data => {
+      if(data.score){
+        document.getElementById("scoreDisplay").innerHTML = data.score;
+      }
+    })
+    .catch(err => console.log("Score Fetch Error:", err));
+}
+
+updateScore();
+setInterval(updateScore, 15000); // updates every 15 sec
 </script>
 
 </body>
