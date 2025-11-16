@@ -13,3 +13,6 @@ Channel 10 shoq English
 Channel 11 Star Sports select
 Channel 12 Astro cricket
 channel13 Youtube pak vs sl
+channel 14: sysports nz
+channell 15 sony 1
+channel 16 sony 3
