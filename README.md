@@ -18,3 +18,4 @@ channell 15 sony 1
 channel 16 sony 3
 channel 17 iOS
 channel 18 7 cricket
+channel 19- TNT2
