@@ -10,7 +10,7 @@ Channel 7 Fox English
 Channel 8 Fox Hindi
 Channel 9 Jiohotstar Hindi
 Channel 10 shoq English
-Channel 11 Star Sports select
+Channel 11 Star Sports 2 english
 Channel 12 Astro cricket
 channel13 Youtube pak vs sl
 channel 14: sysports nz
@@ -20,3 +20,4 @@ channel 17 iOS
 channel 18 7 cricket
 channel 19- TNT2
 channel 20 willow sports
+channel21 zee cinema
