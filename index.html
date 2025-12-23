@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 /* GENERAL */
 html, body {
   margin:0;
@@ -140,7 +139,7 @@ header{
   cursor:pointer;
 }
 
-/* FLOATING BUTTON */
+/* FLOATING TELEGRAM BUTTON */
 .telegram-float{
   position:fixed;
   bottom:20px;
@@ -165,12 +164,12 @@ header{
   50%{transform:scale(1.15);}
   100%{transform:scale(1);}
 }
-
 </style>
 </head>
+
 <body>
 
-<!-- JOIN TELEGRAM POPUP -->
+<!-- JOIN TELEGRAM POPUP (UNCHANGED) -->
 <div class="popup-overlay" id="popup">
   <div class="popup-box">
     <button class="close-btn" onclick="closePopup()">×</button>
@@ -178,7 +177,7 @@ header{
     <div class="popup-subtitle">Join our Channel for live matches and instant updates..</div>
     <div class="popup-buttons">
       <a href="https://t.me/+r_4JF-IieX0wNjU9" target="_blank" class="popup-btn join-btn">Join Now</a>
-      <button class="popup-btn already-btn" onclick="closePopup()">Already Joined</button>
+      <button class="popup-btn already-btn" onclick="closePopup(); startStream();">Already Joined</button>
     </div>
   </div>
 </div>
@@ -194,7 +193,7 @@ header{
   </div>
 </header>
 
-<!-- VIDEO -->
+<!-- VIDEO (ONLY src CHANGE) -->
 <div class="video-container">
   <iframe
     id="liveFrame"
@@ -217,20 +216,23 @@ header{
 <!-- SHARE -->
 <div class="section-box">
   <div class="section-title">🔗 Share This Page</div>
-  <button class="action-btn" onclick="navigator.clipboard.writeText(window.location.href); alert('✅ Link Copied! Share Now');">
+  <button class="action-btn"
+    onclick="navigator.clipboard.writeText(window.location.href); alert('✅ Link Copied! Share Now');">
     Copy & Share This Page
   </button>
 </div>
 
-<!-- FLOATING -->
+<!-- FLOATING TELEGRAM -->
 <a href="https://t.me/+r_4JF-IieX0wNjU9" target="_blank" class="telegram-float">📣</a>
 
 <script>
 function closePopup(){
-  document.getElementById('popup').style.display = 'none';
+  document.getElementById('popup').style.display='none';
+}
 
+function startStream(){
   const frame = document.getElementById('liveFrame');
-  if(!frame.src){
+  if (!frame.src) {
     frame.src = frame.dataset.src;
   }
 }
