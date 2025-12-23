@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 /* GENERAL */
 html, body {
   margin:0;
@@ -95,6 +96,41 @@ header{
   cursor:pointer;
 }
 
+.popup-buttons{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.popup-btn{
+  border-radius:10px;
+  padding:12px 0;
+  font-weight:600;
+  cursor:pointer;
+  border:none;
+  transition:.3s;
+}
+
+.join-btn{
+  background:linear-gradient(135deg,#00ffbf,#008cff);
+  color:#fff;
+  box-shadow:0 0 14px rgba(0,255,200,0.5);
+}
+
+.join-btn:hover{
+  background:linear-gradient(135deg,#00ffe0,#00a6ff);
+  box-shadow:0 0 22px rgba(0,255,200,0.8);
+}
+
+.already-btn{
+  background:rgba(255,255,255,0.12);
+  color:#fff;
+}
+
+.already-btn:hover{
+  background:rgba(255,255,255,0.22);
+}
+
 /* VIDEO */
 .video-container{
   width:100%;
@@ -108,6 +144,7 @@ header{
   width:100%;
   height:100%;
   border:none;
+  object-fit:cover;
 }
 
 /* SECTIONS */
@@ -139,6 +176,10 @@ header{
   cursor:pointer;
 }
 
+.action-btn:hover{
+  transform:translateY(-2px);
+}
+
 /* FLOATING TELEGRAM BUTTON */
 .telegram-float{
   position:fixed;
@@ -164,12 +205,21 @@ header{
   50%{transform:scale(1.15);}
   100%{transform:scale(1);}
 }
+
 </style>
 </head>
-
 <body>
 
-<!-- JOIN TELEGRAM POPUP (UNCHANGED) -->
+<!-- VISITOR POPUP -->
+<div class="popup-overlay" id="visitorPopup" style="display:none;">
+  <div class="popup-box">
+    <button class="close-btn" onclick="closeVisitorPopup()">×</button>
+    <div class="popup-header">Total Visitors</div>
+    <img src="https://visit-counter.vercel.app/counter.png?page=crickcast.live&s=40&c=00ff00&bg=00000000"/>
+  </div>
+</div>
+
+<!-- JOIN TELEGRAM POPUP -->
 <div class="popup-overlay" id="popup">
   <div class="popup-box">
     <button class="close-btn" onclick="closePopup()">×</button>
@@ -193,19 +243,18 @@ header{
   </div>
 </header>
 
-<!-- VIDEO (ONLY src CHANGE) -->
+<!-- VIDEO (✅ FIXED PLAYBACK) -->
 <div class="video-container">
   <iframe
-    id="liveFrame"
-    data-src="https://cricketstan.github.io/Channel-13/"
+    src="https://cricketstan.github.io/Channel-13/"
     frameborder="0"
     allowfullscreen
     allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
-    sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-popups">
-  </iframe>
+    sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-popups"
+  ></iframe>
 </div>
 
-<!-- FOLLOW -->
+<!-- FOLLOW SECTION -->
 <div class="section-box">
   <div class="section-title">🔔 Follow Us for Updates</div>
   <a href="https://t.me/+r_4JF-IieX0wNjU9" target="_blank">
@@ -213,16 +262,15 @@ header{
   </a>
 </div>
 
-<!-- SHARE -->
+<!-- SHARE SECTION -->
 <div class="section-box">
   <div class="section-title">🔗 Share This Page</div>
-  <button class="action-btn"
-    onclick="navigator.clipboard.writeText(window.location.href); alert('✅ Link Copied! Share Now');">
+  <button class="action-btn" onclick="navigator.clipboard.writeText(window.location.href); alert('✅ Link Copied! Share Now');">
     Copy & Share This Page
   </button>
 </div>
 
-<!-- FLOATING TELEGRAM -->
+<!-- FLOATING TELEGRAM BUTTON -->
 <a href="https://t.me/+r_4JF-IieX0wNjU9" target="_blank" class="telegram-float">📣</a>
 
 <script>
@@ -231,10 +279,11 @@ function closePopup(){
 }
 
 function startStream(){
-  const frame = document.getElementById('liveFrame');
-  if (!frame.src) {
-    frame.src = frame.dataset.src;
-  }
+  document.querySelector('.video-container iframe').src = document.querySelector('.video-container iframe').src;
+}
+
+function closeVisitorPopup(){
+  document.getElementById('visitorPopup').style.display='none';
 }
 </script>
 
