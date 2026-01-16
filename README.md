@@ -9,9 +9,9 @@ Channel 6 prime English
 Channel 7 Fox English
 Channel 8 Fox Hindi
 Channel 9 Jiohotstar Hindi
-Channel 10 shoq English
+Channel 10 Hotstar
 Channel 11 Star Sports 2 english
-Channel 12 Astro cricket
+Channel 12 Criclife
 channel13 Youtube pak vs sl
 channel 14: sysports nz
 channell 15 sony 1
