@@ -14,7 +14,7 @@ Channel 11 Star Sports 2 english
 Channel 12 Criclife
 channel13 Youtube pak vs sl
 channel 14: sysports nz
-channell 15 sony 1
+channell 15 star sports 2 eng
 channel 16 sony 3
 channel 17 iOS
 channel 18 7 cricket
